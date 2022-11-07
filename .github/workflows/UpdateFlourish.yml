@@ -1,0 +1,31 @@
+name: UpdateFlourish
+on: 
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.7
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+          pip install configparser
+      - name: Run script
+        run: |
+          python APAPI_00_Request.py
+      - name: Run script
+        run: |
+          python APAPI_01_MakeFlourish.py
+      - name: Commit and Push
+        run: |
+          git config user.name ku6otM
+          git config user.email kubotamasayukii@gmail.com
+          git add .
+          git commit -m "AP API Update"
+          git push origin main
