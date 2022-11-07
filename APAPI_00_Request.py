@@ -25,8 +25,6 @@ savefile = config['SaveFile']['senate'].replace('datadir', config['Path']['datad
 res = requests.get(
     f'https://api.ap.org/v3/elections/{ELECTIONDATE}?apikey={APIKEY}&officeID={officeID}&resultstype={RESULTSTYPE}&winner=X&format=json')
 result = res.json()
-# save update info
-config['NextRequest']['senate'] = result['nextrequest'].replace('%', '%%')
 
 races = result['races']
 winners = pd.DataFrame()
@@ -55,8 +53,6 @@ savefile = config['SaveFile']['house'].replace('datadir', config['Path']['datadi
 res = requests.get(
     f'https://api.ap.org/v3/elections/{ELECTIONDATE}?apikey={APIKEY}&officeID={officeID}&resultstype={RESULTSTYPE}&winner=X&format=json')
 result = res.json()
-# save update info
-config['NextRequest']['house'] = result['nextrequest'].replace('%', '%%')
 
 races = result['races']
 winners = pd.DataFrame()
