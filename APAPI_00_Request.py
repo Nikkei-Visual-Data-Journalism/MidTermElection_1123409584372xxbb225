@@ -23,9 +23,12 @@ officeID = 'S'
 savefile = config['SaveFile']['senate'].replace('datadir', config['Path']['datadir'])
 # Request
 res = requests.get(
-    f'https://api.ap.org/v3/elections/{ELECTIONDATE}?apikey={APIKEY}&officeID={officeID}&resultstype={RESULTSTYPE}&winner=X&format=json')
+    f'https://api.ap.org/v3/elections/{ELECTIONDATE}?apikey={APIKEY}&officeID={officeID}&resultstype={RESULTSTYPE}&format=json')
 result = res.json()
 
+for race in result['races']:
+    race['reportingUnits'][0]['candidates'] = [c for c in race['reportingUnits'][0]['candidates'] if 'winner' in c.keys() and c['winner']=='X']
+    
 races = result['races']
 winners = pd.DataFrame()
 for race in races:
@@ -51,8 +54,11 @@ officeID = 'H'
 savefile = config['SaveFile']['house'].replace('datadir', config['Path']['datadir'])
 # Request
 res = requests.get(
-    f'https://api.ap.org/v3/elections/{ELECTIONDATE}?apikey={APIKEY}&officeID={officeID}&resultstype={RESULTSTYPE}&winner=X&format=json')
+    f'https://api.ap.org/v3/elections/{ELECTIONDATE}?apikey={APIKEY}&officeID={officeID}&resultstype={RESULTSTYPE}&format=json')
 result = res.json()
+
+for race in result['races']:
+    race['reportingUnits'][0]['candidates'] = [c for c in race['reportingUnits'][0]['candidates'] if 'winner' in c.keys() and c['winner']=='X']
 
 races = result['races']
 winners = pd.DataFrame()
