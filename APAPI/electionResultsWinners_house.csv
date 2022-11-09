@@ -1,3 +1,4 @@
-﻿first,last,incumbent,party,candidateID,ballotOrder,polID,polNum,voteCount,electWon,winner,winnerDateTime,statePostal,stateName,raceID,seatNum,abbrv
-Jeff,Duncan,True,GOP,47577,1,57891,43977,0,0,X,2022-11-09T00:00:14.009Z,SC,South Carolina,41004,3,
-William,Timmons,True,GOP,48666,1,66899,44248,0,0,X,2022-11-09T00:00:14.009Z,SC,South Carolina,41313,4,Timmns
+﻿statePostal,stateName,raceID,seatNum,first,last,incumbent,party,candidateID,ballotOrder,polID,polNum,voteCount,electWon,winner,winnerDateTime,abbrv
+KY,Kentucky,18013,5,Harold,Rogers,True,GOP,4587,1.0,208,18376,15688.0,0.0,X,2022-11-09T00:07:04.524Z,
+SC,South Carolina,41004,3,Jeff,Duncan,True,GOP,47577,1.0,57891,43977,0.0,0.0,X,2022-11-09T00:00:14.009Z,
+SC,South Carolina,41313,4,William,Timmons,True,GOP,48666,1.0,66899,44248,0.0,0.0,X,2022-11-09T00:00:14.009Z,Timmns
