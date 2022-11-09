@@ -1,4 +1,4 @@
 ﻿statePostal,stateName,raceID,seatNum,first,last,incumbent,party,candidateID,ballotOrder,polID,polNum,voteCount,electWon,winner,winnerDateTime
-KY,Kentucky,18847,,Rand,Paul,True,GOP,5617,1.0,60208,19745,46331.0,0.0,X,2022-11-09T00:14:52.601Z
-SC,South Carolina,41849,,Tim,Scott,True,GOP,48048,2.0,60345,43498,3952.0,0.0,X,2022-11-09T00:00:02.636Z
-VT,Vermont,46373,,Peter,Welch,,Dem,53965,8.0,58883,48621,0.0,0.0,X,2022-11-09T00:00:02.636Z
+KY,Kentucky,18847,,Rand,Paul,True,GOP,5617,1.0,60208,19745,107826.0,0.0,X,2022-11-09T00:14:52.601Z
+SC,South Carolina,41849,,Tim,Scott,True,GOP,48048,2.0,60345,43498,26850.0,0.0,X,2022-11-09T00:00:02.636Z
+VT,Vermont,46373,,Peter,Welch,,Dem,53965,8.0,58883,48621,1486.0,0.0,X,2022-11-09T00:00:02.636Z
