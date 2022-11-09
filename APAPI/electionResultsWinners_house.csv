@@ -1,2 +1,3 @@
-﻿first,last,party,incumbent,candidateID,polID,ballotOrder,polNum,voteCount,electWon,winner,winnerDateTime,statePostal,stateName,raceID,seatNum,abbrv,middle
-Raul,Grijalva,Dem,True,10529,1131,1.0,4343,245147.0,0.0,X,2022-11-02T21:06:31.002Z,AZ,Arizona,3920,7,,
+﻿first,last,incumbent,party,candidateID,ballotOrder,polID,polNum,voteCount,electWon,winner,winnerDateTime,statePostal,stateName,raceID,seatNum,abbrv
+Jeff,Duncan,True,GOP,47577,1,57891,43977,0,0,X,2022-11-09T00:00:14.009Z,SC,South Carolina,41004,3,
+William,Timmons,True,GOP,48666,1,66899,44248,0,0,X,2022-11-09T00:00:14.009Z,SC,South Carolina,41313,4,Timmns

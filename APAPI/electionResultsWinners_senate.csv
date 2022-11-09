@@ -1,1 +1,11 @@
-﻿first,last,party,candidateID,polID,ballotOrder,polNum,voteCount,electWon,winner,winnerDateTime,statePostal,stateName,raceID
+﻿first,last,incumbent,party,candidateID,ballotOrder,polID,polNum,voteCount,electWon,winner,winnerDateTime,statePostal,stateName,raceID,abbrv
+Tim,Scott,True,GOP,48048,2,60345,43498,0,0,X,2022-11-09T00:00:02.636Z,SC,South Carolina,41849,
+Krystle,Matthews,,Dem,49617,1,70911,44559,0,0,,,SC,South Carolina,41849,
+Peter,Welch,,Dem,53965,8,58883,48621,0,0,X,2022-11-09T00:00:02.636Z,VT,Vermont,46373,
+Ms. Cris,Ericson,,Ind,54238,5,1158,49330,0,0,,,VT,Vermont,46373,
+Dawn,Ellis,,Ind,54242,4,71695,49694,0,0,,,VT,Vermont,46373,
+Gerald,Malloy,,GOP,53969,6,71174,50345,0,0,,,VT,Vermont,46373,
+Mark,Coester,,Ind,54239,1,71696,50375,0,0,,,VT,Vermont,46373,
+Stephen,Duke,,Ind,54241,3,71698,50467,0,0,,,VT,Vermont,46373,
+Kerry,Raheb,,Ind,54240,7,71697,50468,0,0,,,VT,Vermont,46373,
+Natasha,Diamondstone-Kohout,,GPJ,54326,2,71781,50481,0,0,,,VT,Vermont,46373,Dmndstn
