@@ -60,5 +60,6 @@ if len(senate) > 0:
             result[c] = 0
     for c in ['民主党', 'その他', '共和党']:
         bar_senate.iloc[0][c] = result[c]
+    bar_senate.iloc[0]['共和党'] += 1
     bar_senate.iloc[0]['残り'] = 35 - sum(result.values())
 bar_senate.to_csv('Flourish/bar_senate.csv', encoding='utf_8_sig', index=False)
