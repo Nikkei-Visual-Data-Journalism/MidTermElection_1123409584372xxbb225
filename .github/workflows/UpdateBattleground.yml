@@ -1,4 +1,4 @@
-name: UpdateFlourish
+name: UpdateBattleground
 on: 
   workflow_dispatch:
 jobs:
