@@ -68,5 +68,5 @@ result = result[(result.raceCallStatus=='Too Early to Call')]
 result = result[(~result.voteCount_GOP.isna())]
 
 result[['statePostal', 'seatNum', 'eevp', 'voteCount_Total', 'candidate_GOP', 'voteCount_GOP', 'votePct_GOP', 'candidate_Dem', 'voteCount_Dem', 'votePct_Dem']].to_csv(
-    'votePct_house.csv', encoding='utf_8_sig', index=False
+    'Flourish/votePct_house.csv', encoding='utf_8_sig', index=False
 )
