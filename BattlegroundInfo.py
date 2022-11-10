@@ -8,7 +8,7 @@ raceID_senate = pd.read_csv('raceID_senate.csv', encoding='utf_8_sig', dtype=obj
 ELECTIONDATE ='2022-11-08'
 OFFICEID = 'S'
 res = requests.get(
-    f'https://api.ap.org/v3/elections/{ELECTIONDATE}?apikey={APIKEY}&officeID={OFFICEID}&resultstype=l&format=json')
+    f'https://api.ap.org/v3/elections/{ELECTIONDATE}?apikey={os.environ['APAPIKEY']}&officeID={OFFICEID}&resultstype=l&format=json')
 
 races = res.json()['races']
 races = [race for race in races if race['raceID'] in raceID_senate.raceID.to_list()]
@@ -40,7 +40,7 @@ result[['statePostal', 'seatNum', 'eevp', 'voteCount_Total', 'candidate_GOP', 'v
 ELECTIONDATE ='2022-11-08'
 OFFICEID = 'H'
 res = requests.get(
-    f'https://api.ap.org/v3/elections/{ELECTIONDATE}?apikey={APIKEY}&officeID={OFFICEID}&resultstype=l&format=json')
+    f'https://api.ap.org/v3/elections/{ELECTIONDATE}?apikey={os.environ['APAPIKEY']}&officeID={OFFICEID}&resultstype=l&format=json')
 
 races = res.json()['races']
 races = [race for race in races if race['raceID'] in raceID_house.raceID.to_list()]
