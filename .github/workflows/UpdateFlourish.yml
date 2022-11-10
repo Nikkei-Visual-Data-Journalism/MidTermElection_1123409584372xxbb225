@@ -20,12 +20,16 @@ jobs:
           pip install configparser
           pip install pandas
       - name: Run script
+        env: |
+          APAPIKEY: ${{ secrets.APAPIKEY }}
         run: |
           python APAPI_00_Request.py
       - name: Run script
         run: |
           python APAPI_01_MakeFlourish.py
       - name: Run script
+        env: |
+          APAPIKEY: ${{ secrets.APAPIKEY }}
         run: |
           python BattlegroundInfo.py
       - name: Commit and Push
