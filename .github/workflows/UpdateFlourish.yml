@@ -24,7 +24,11 @@ jobs:
           APAPIKEY: ${{ secrets.APAPIKEY }}
         run:
           python APAPI_00_Request.py
+      - name: Run second
+        run:
           python APAPI_01_MakeFlourish.py
+      - name: Run third
+        run:
           python BattlegroundInfo.py
       - name: Commit and Push
         run: |
