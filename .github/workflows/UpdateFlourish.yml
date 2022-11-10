@@ -27,11 +27,6 @@ jobs:
       - name: Run second
         run:
           python APAPI_01_MakeFlourish.py
-      - name: Run third
-        env:
-          APAPIKEY: ${{ secrets.APAPIKEY }}
-        run:
-          python BattlegroundInfo.py
       - name: Commit and Push
         run: |
           git config user.name ku6otM
