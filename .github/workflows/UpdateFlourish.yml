@@ -30,7 +30,7 @@ jobs:
       - name: Commit and Push
         run: |
           git config user.name ku6otM
-          git config user.email kubotamasayukii@gmail.com
+          git config user.email kubotamasayukii+github@gmail.com
           git add .
           git commit -m "AP API Update"
           git push origin main
