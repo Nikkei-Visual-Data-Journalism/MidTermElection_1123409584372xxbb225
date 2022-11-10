@@ -8,7 +8,7 @@ import pandas as pd
 config = configparser.ConfigParser()
 config.read('APAPI.ini')
 # Set api key
-APIKEY = '8ob3i6tphhraof83cz7wad6mwh'
+APIKEY = os.environ['APAPIKEY']
 # Set resultstype
 RESULTSTYPE = config['Default']['resultstype']
 print(f'Results type is {RESULTSTYPE}')
