@@ -19,25 +19,35 @@ races = [race for race in races if race['raceID'] in raceID_senate.raceID.to_lis
 for race in races:
     race['statePostal'] = race['reportingUnits'][0]['statePostal']
     candidates = race['reportingUnits'][0]['candidates']
-    race['voteCount_Total'] = sum([c['voteCount'] for c in candidates])
+    #race['voteCount_Total'] = sum([c['voteCount'] for c in candidates])
     if len([c for c in candidates if c['party']=='GOP'])==1 and len([c for c in candidates if c['party']=='Dem'])==1:
         candidate_GOP = [c for c in candidates if c['party']=='GOP'][0]
         candidate_Dem = [c for c in candidates if c['party']=='Dem'][0]
-        race['candidate_GOP'] = candidate_GOP['first'] + ' ' + candidate_GOP['last']
-        race['candidate_Dem'] = candidate_Dem['first'] + ' ' + candidate_Dem['last']
+        # race['candidate_GOP'] = candidate_GOP['first'] + ' ' + candidate_GOP['last']
+        # race['candidate_Dem'] = candidate_Dem['first'] + ' ' + candidate_Dem['last']
         race['voteCount_GOP'] = candidate_GOP['voteCount']
         race['voteCount_Dem'] = candidate_Dem['voteCount']
         race['voteCount_Total'] = sum([c['voteCount'] for c in candidates])
+        
 result = pd.DataFrame(races)
 result['votePct_GOP'] = result['voteCount_GOP'] / result['voteCount_Total'] * 100
 result['votePct_Dem'] = result['voteCount_Dem'] / result['voteCount_Total'] * 100
-
+result['votePct_Others'] = 100 - result.votePct_GOP - result.votePct_Dem
 result = result[(result.raceCallStatus=='Too Early to Call')|(result.statePostal=='GA')]
-result = result[(~result.voteCount_GOP.isna())]
+result = result[~result.voteCount_GOP.isna()]
 
-result[['statePostal', 'seatNum', 'eevp', 'voteCount_Total', 'candidate_GOP', 'voteCount_GOP', 'votePct_GOP', 'candidate_Dem', 'voteCount_Dem', 'votePct_Dem']].to_csv(
-    'Flourish/votePct_senate.csv', encoding='utf_8_sig', index=False
-)
+df = result[['statePostal', 'votePct_Dem', 'votePct_Others', 'votePct_GOP', 'eevp']].reset_index(drop=True)
+
+states = pd.read_csv('states.csv')
+
+df.statePostal = df.statePostal.map(states.set_index('statePostal')['州名'].to_dict())
+
+df.columns = df.columns.map(
+    {'statePostal':'州', 'votePct_Dem':'民主党', 'votePct_Others':'その他', 'votePct_GOP':'共和党', 'eevp':'開票率'})
+
+df = df.set_index('州').round(1)
+
+df.to_csv('Flourish/votePct_senate.csv', encoding='utf_8_sig')
 
 # House
 ELECTIONDATE ='2022-11-08'
@@ -51,22 +61,35 @@ races = [race for race in races if race['raceID'] in raceID_house.raceID.to_list
 for race in races:
     race['statePostal'] = race['reportingUnits'][0]['statePostal']
     candidates = race['reportingUnits'][0]['candidates']
-    race['voteCount_Total'] = sum([c['voteCount'] for c in candidates])
+    #race['voteCount_Total'] = sum([c['voteCount'] for c in candidates])
     if len([c for c in candidates if c['party']=='GOP'])==1 and len([c for c in candidates if c['party']=='Dem'])==1:
         candidate_GOP = [c for c in candidates if c['party']=='GOP'][0]
         candidate_Dem = [c for c in candidates if c['party']=='Dem'][0]
-        race['candidate_GOP'] = candidate_GOP['first'] + ' ' + candidate_GOP['last']
-        race['candidate_Dem'] = candidate_Dem['first'] + ' ' + candidate_Dem['last']
+        # race['candidate_GOP'] = candidate_GOP['first'] + ' ' + candidate_GOP['last']
+        # race['candidate_Dem'] = candidate_Dem['first'] + ' ' + candidate_Dem['last']
         race['voteCount_GOP'] = candidate_GOP['voteCount']
         race['voteCount_Dem'] = candidate_Dem['voteCount']
         race['voteCount_Total'] = sum([c['voteCount'] for c in candidates])
+        
 result = pd.DataFrame(races)
 result['votePct_GOP'] = result['voteCount_GOP'] / result['voteCount_Total'] * 100
 result['votePct_Dem'] = result['voteCount_Dem'] / result['voteCount_Total'] * 100
+result['votePct_Others'] = 100 - result.votePct_GOP - result.votePct_Dem
+result = result[result.raceCallStatus=='Too Early to Call']
+result = result[~result.voteCount_GOP.isna()]
 
-result = result[(result.raceCallStatus=='Too Early to Call')]
-result = result[(~result.voteCount_GOP.isna())]
+df = result[['statePostal', 'seatNum', 'votePct_Dem', 'votePct_Others', 'votePct_GOP', 'eevp']].reset_index(drop=True)
 
-result[['statePostal', 'seatNum', 'eevp', 'voteCount_Total', 'candidate_GOP', 'voteCount_GOP', 'votePct_GOP', 'candidate_Dem', 'voteCount_Dem', 'votePct_Dem']].to_csv(
-    'Flourish/votePct_house.csv', encoding='utf_8_sig', index=False
-)
+df.statePostal = df.statePostal.map(states.set_index('statePostal')['州名'].to_dict())
+
+df['district'] = df.statePostal + '(' + df.seatNum + ')'
+
+df = df.drop(['statePostal', 'seatNum'],axis=1).reindex(
+    ['district', 'votePct_Dem', 'votePct_Others', 'votePct_GOP', 'eevp'],axis=1)
+
+df.columns = df.columns.map(
+    {'district':'州（選挙区）', 'votePct_Dem':'民主党', 'votePct_Others':'その他', 'votePct_GOP':'共和党', 'eevp':'開票率'})
+
+df = df.set_index('州（選挙区）').round(1)
+
+df.to_csv('Flourish/votePct_house.csv', encoding='utf_8_sig')
