@@ -20,6 +20,8 @@ jobs:
       - name: Run third
         env:
           APAPIKEY: ${{ secrets.APAPIKEY }}
+          EMAIL: ${{ secrets.EMAIL }}
+          NAME: ${{ secrets.NAME }}
         run:
           python BattlegroundInfo.py
       - name: Commit and Push
