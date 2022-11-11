@@ -44,6 +44,7 @@ if len(house) > 0:
     for c in ['民主党', 'その他', '共和党']:
         if c not in result.keys():
             result[c] = 0
+    result['民主党'] += 2
     for c in ['民主党', 'その他', '共和党']:
         bar_house.iloc[0][c] = result[c]
     bar_house.iloc[0]['残り'] = 435 - sum(result.values())
