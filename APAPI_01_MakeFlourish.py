@@ -38,7 +38,7 @@ map_senate.to_csv('Flourish/map_senate.csv', encoding='utf_8_sig', index=False)
 # Make bar_house
 if len(house) > 0:
     _dict = {'Dem':'民主党', 'GOP':'共和党'}
-    df = house.copy()
+    df = house[house.raceID!='8725'].copy()
     df.party = df.party.apply(lambda x: _dict[x] if x in _dict.keys() else 'その他')
     result = df.party.value_counts().to_dict()
     for c in ['民主党', 'その他', '共和党']:
@@ -53,7 +53,7 @@ bar_house.to_csv('Flourish/bar_house.csv', encoding='utf_8_sig', index=False)
 # Make bar_senate
 if len(senate) > 0:
     _dict = {'Dem':'民主党', 'GOP':'共和党'}
-    df = senate.copy()
+    df = senate[senate.raceID!='2933'].copy()
     df.party = df.party.apply(lambda x: _dict[x] if x in _dict.keys() else 'その他')
     result = df.party.value_counts().to_dict()
     for c in ['民主党', 'その他', '共和党']:
