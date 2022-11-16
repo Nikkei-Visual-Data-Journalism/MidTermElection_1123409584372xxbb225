@@ -1,7 +1,7 @@
 ﻿statePostal,stateName,raceID,first,last,party,candidateID,ballotOrder,polID,polNum,voteCount,electWon,winner,winnerDateTime,incumbent,seatNum,abbrv
 AL,Alabama,1683,Katie,Britt,GOP,6052,2.0,70506,3830,940048.0,0.0,X,2022-11-09T01:00:04.280Z,,,
 AR,Arkansas,5103,John,Boozman,GOP,11958,1.0,1620,7448,590199.0,0.0,X,2022-11-09T01:30:03.718Z,True,,
-AZ,Arizona,3002,Mark,Kelly,Dem,10393,1.0,68876,6135,1310454.0,0.0,X,2022-11-12T03:14:01.765Z,True,,
+AZ,Arizona,3002,Mark,Kelly,Dem,10393,1.0,68876,6135,1310752.0,0.0,X,2022-11-12T03:14:01.765Z,True,,
 CA,California,8516,Alex,Padilla,Dem,22831,1.0,69672,11142,5142502.0,0.0,X,2022-11-09T04:00:13.484Z,True,,
 CA,California,8964,Alex,Padilla,Dem,23467,1.0,69672,11142,5095210.0,0.0,X,2022-11-09T04:31:17.291Z,True,2,
 CO,Colorado,7190,Michael,Bennet,Dem,12369,1.0,59911,8435,1383102.0,0.0,X,2022-11-09T03:09:48.001Z,True,,
