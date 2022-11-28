@@ -33,7 +33,7 @@ result = pd.DataFrame(races)
 result['votePct_GOP'] = result['voteCount_GOP'] / result['voteCount_Total'] * 100
 result['votePct_Dem'] = result['voteCount_Dem'] / result['voteCount_Total'] * 100
 result['votePct_Others'] = 100 - result.votePct_GOP - result.votePct_Dem
-result = result[(result.raceCallStatus=='Too Early to Call')|(result.statePostal=='GA')]
+# result = result[(result.raceCallStatus=='Too Early to Call')|(result.statePostal=='GA')]
 result = result[~result.voteCount_GOP.isna()]
 
 df = result[['statePostal', 'votePct_Dem', 'votePct_Others', 'votePct_GOP', 'eevp']].reset_index(drop=True)
@@ -75,7 +75,7 @@ result = pd.DataFrame(races)
 result['votePct_GOP'] = result['voteCount_GOP'] / result['voteCount_Total'] * 100
 result['votePct_Dem'] = result['voteCount_Dem'] / result['voteCount_Total'] * 100
 result['votePct_Others'] = 100 - result.votePct_GOP - result.votePct_Dem
-result = result[result.raceCallStatus=='Too Early to Call']
+# result = result[result.raceCallStatus=='Too Early to Call']
 result = result[~result.voteCount_GOP.isna()]
 
 df = result[['statePostal', 'seatNum', 'votePct_Dem', 'votePct_Others', 'votePct_GOP', 'eevp']].reset_index(drop=True)
