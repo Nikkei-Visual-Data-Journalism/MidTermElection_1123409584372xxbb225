@@ -1,0 +1,33 @@
+name: UpdateGeorgia
+on: 
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.7
+      - name: Install dependencies
+        run:
+          python -m pip install --upgrade pip
+          pip install requests
+          pip install configparser
+          pip install pandas
+      - name: Run third
+        env:
+          APAPIKEY: ${{ secrets.APAPIKEY }}
+          EMAIL: ${{ secrets.EMAIL }}
+          NAME: ${{ secrets.NAME }}
+        run:
+          python Georgia.py
+      - name: Commit and Push
+        run: |
+          git config --global user.email ${{ secrets.EMAIL }}
+          git config --global user.name ${{ secrets.NAME }}
+          git add .
+          git commit -m "AP API Update" || echo 'No changes to commit'
+          git push origin main
